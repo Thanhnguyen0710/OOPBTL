@@ -4,6 +4,8 @@ import mrmathami.thegame.GameEntities;
 import mrmathami.thegame.GameField;
 import mrmathami.thegame.entity.UpdatableEntity;
 import mrmathami.thegame.entity.enemy.AbstractEnemy;
+import mrmathami.thegame.entity.enemy.NormalEnemy;
+import mrmathami.thegame.entity.enemy.TankerEnemy;
 import mrmathami.thegame.entity.tile.AbstractTile;
 
 import javax.annotation.Nonnull;
@@ -32,8 +34,9 @@ public abstract class AbstractSpawner<E extends AbstractEnemy> extends AbstractT
 			// Check if the spot is valid and then spawn an enemy
 			// Remember to set this.tickDown back to this.spawnInterval
 			// and decrease this.numOfSpawn once you spawn an enemy.
-			// this.tickDown = spawnInterval;
-			// this.numOfSpawn -= 1;
+            this.tickDown = spawnInterval;
+			this.numOfSpawn -= 1;
+            field.doSpawn(new NormalEnemy(5,1,2));
 		}
 	}
 
