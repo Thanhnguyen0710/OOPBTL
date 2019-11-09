@@ -13,6 +13,15 @@ public final class GameField {
 	@Nonnull private final Set<GameEntity> entities = new LinkedHashSet<>(Config._TILE_MAP_COUNT);
 	@Nonnull private final Collection<GameEntity> unmodifiableEntities = Collections.unmodifiableCollection(entities);
 	@Nonnull private final List<GameEntity> spawnEntities = new ArrayList<>(Config._TILE_MAP_COUNT);
+	private long reward= 500;
+
+	public long getReward() {
+		return reward;
+	}
+
+	public void setReward(long reward) {
+		this.reward = reward;
+	}
 
 	/**
 	 * Field width

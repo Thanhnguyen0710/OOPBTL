@@ -3,9 +3,7 @@ package mrmathami.thegame.entity.tile.spawner;
 import mrmathami.thegame.GameEntities;
 import mrmathami.thegame.GameField;
 import mrmathami.thegame.entity.UpdatableEntity;
-import mrmathami.thegame.entity.enemy.AbstractEnemy;
-import mrmathami.thegame.entity.enemy.NormalEnemy;
-import mrmathami.thegame.entity.enemy.TankerEnemy;
+import mrmathami.thegame.entity.enemy.*;
 import mrmathami.thegame.entity.tile.AbstractTile;
 
 import javax.annotation.Nonnull;
@@ -36,7 +34,7 @@ public abstract class AbstractSpawner<E extends AbstractEnemy> extends AbstractT
 			// and decrease this.numOfSpawn once you spawn an enemy.
             this.tickDown = spawnInterval;
 			this.numOfSpawn -= 1;
-            field.doSpawn(new NormalEnemy(5,1,2));
+            field.doSpawn(new BossEnemy(8,1,2));
 		}
 	}
 
