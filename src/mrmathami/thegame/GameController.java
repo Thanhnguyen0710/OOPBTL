@@ -3,6 +3,7 @@ package mrmathami.thegame;
 import javafx.animation.AnimationTimer;
 import javafx.application.Platform;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
@@ -124,6 +125,8 @@ public final class GameController extends AnimationTimer {
 		graphicsContext.setFill(Color.BLACK);
 		graphicsContext.fillText(String.format("MSPT: %3.2f", mspt), 0, 12);
 
+		graphicsContext.setFill(Color.WHITE);
+		graphicsContext.fillText(String.format("COIN: %d",field.getReward()),900,600);
 		// if we have time to spend, do a spin
 		while (currentTick == tick) Thread.onSpinWait();
 	}
@@ -196,7 +199,7 @@ public final class GameController extends AnimationTimer {
 	 */
 	final void mouseDownHandler(MouseEvent mouseEvent) {
 //		mouseEvent.getButton(); // which mouse button?
-//		// Screen coordinate. Remember to convert to field coordinate
+		// Screen coordinate. Remember to convert to field coordinate
 //		drawer.screenToFieldPosX(mouseEvent.getX());
 //		drawer.screenToFieldPosY(mouseEvent.getY());
 	}

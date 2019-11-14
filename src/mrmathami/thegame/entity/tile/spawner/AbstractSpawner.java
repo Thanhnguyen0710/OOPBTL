@@ -34,7 +34,7 @@ public abstract class AbstractSpawner<E extends AbstractEnemy> extends AbstractT
 			// and decrease this.numOfSpawn once you spawn an enemy.
             this.tickDown = spawnInterval;
 			this.numOfSpawn -= 1;
-            field.doSpawn(new BossEnemy(8,1,2));
+            field.doSpawn(doSpawn(getCreatedTick(),getPosX(),getPosY()));
 		}
 	}
 

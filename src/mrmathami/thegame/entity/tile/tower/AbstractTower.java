@@ -12,6 +12,7 @@ import mrmathami.thegame.entity.enemy.NormalEnemy;
 import mrmathami.thegame.entity.tile.AbstractTile;
 
 import javax.annotation.Nonnull;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -37,8 +38,9 @@ public abstract class AbstractTower<E extends AbstractBullet> extends AbstractTi
 			// TODO: Find a target and spawn a bullet to that direction.
 			// Use GameEntities.getFilteredOverlappedEntities to find target in range
 			// Remember to set this.tickDown back to this.speed after shooting something.
-			Collection<AbstractTower> list = GameEntities.getFilteredOverlappedEntities(field.getEntities(),AbstractTower.class,0,1,6,6);
-			field.doSpawn(new NormalBullet(4,getPosX(),getPosY(),1,1));
+			List<AbstractEnemy> list = (List<AbstractEnemy>) GameEntities.getFilteredOverlappedEntities(field.getEntities(),AbstractEnemy.class,getPosX(),getPosY(),range,range);
+			for(int i = 0 ; i < list.size() ; i++)
+				field.doSpawn(doSpawn(getCreatedTick(),getPosX(),getPosY(),list.get(i).getPosX()-getPosX(),list.get(i).getPosY()-getPosY()));
 			this.tickDown = speed;
 		}
 	}
